@@ -8,7 +8,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y lib32gcc1
 
 # Install steamcmd to /opt/steamcmd/
-ADD wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
+ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
 RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/
 
 ENTRYPOINT ["/opt/steamcmd/steamcmd.sh"]
