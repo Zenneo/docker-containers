@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /opt/murmur/murmur.x86 -fg -v -ini /etc/murmur.ini
