@@ -7,9 +7,6 @@ USER steam
 # Gmod port
 ENV GMOD_PORT=27015
 
-VOLUME /opt/garrysmod
-
-EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
 
@@ -20,6 +17,10 @@ RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     chmod -R 777 /opt/garrysmod
 USER steam
+
+
+VOLUME /opt/garrysmod
+EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 # entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]

@@ -4,4 +4,4 @@
 /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/garrysmod +app_update 4020 validate +quit
 
 # run Gmod server
-/opt/garrysmod/srcds_run -steamdir /opt/steamcmd -port ${GMOD_PORT} "$@"
+/opt/garrysmod/srcds_run -steamdir /opt/steamcmd -port "$GMOD_PORT" "$@"
