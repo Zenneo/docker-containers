@@ -21,7 +21,7 @@ This container creates a Gmod server without any other games hooked up to it.
     
 You can change the gamemode and map or add your own parameters.
 
-If you can connect to your server because it is outdated stop and delete your installation using `docker stop gmodserver ` and `docker rm gmodserver`. Then re-run your setup commands (see above).
+If you cannot connect to your server because it is outdated stop and delete your installation using `docker stop gmodserver ` and `docker rm gmodserver`. Then re-run your setup commands (see above).
 
 ## gmod-css-tf2
 This container creates a Gmod server that includes asset from TF2 and CSS. The mount.cfg file is automatically updated so that the extra assets are mounted.

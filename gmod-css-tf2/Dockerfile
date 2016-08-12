@@ -1,4 +1,4 @@
-FROM zennoe/gmod-vanilla
+FROM zennoe/gmod-vanilla:latest
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 # switch to steam user

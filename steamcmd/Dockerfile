@@ -12,7 +12,8 @@ ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
 # Untar, create user steamcmd and chown
 RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/ && \
     useradd -m steam && \
-    chown -R steam /opt
+    chown -R steam /opt && \
+    chmod -R 744 /opt
 
 # Switch to steam user
 USER steam
