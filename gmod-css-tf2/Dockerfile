@@ -1,6 +1,9 @@
 FROM zennoe/gmod-vanilla
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
+# switch to steam user
+USER steam
+
 # Gmod port
 ENV GMOD_PORT=27015
 
