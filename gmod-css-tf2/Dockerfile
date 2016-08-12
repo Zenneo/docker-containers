@@ -7,24 +7,21 @@ USER steam
 # Gmod port
 ENV GMOD_PORT=27015
 
-# Install TF2 to /opt/tf2/ and CSS to /opt/css/
-RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/tf2 \
-    +app_update 232250 validate +quit && \
-    /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/css \
-    +app_update 232330 validate +quit
-	
-# Change Gmod config so that games are mounted
-RUN echo "
-	\"mountcfg\"
-	{
-		\"cstrike\"	\"/opt/css/cstrike\"
-		\"tf\"	\"/opt/tf2/tf\"
-	}
-    " > /opt/garrysmod/garrysmod/cfg/mount.cfg
+ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
 
-VOLUME /opt/garrysmod/garrysmod
+# add docker-entrypoint.sh and fix permissions
+COPY docker-entrypoint.sh /usr/local/bin/
+USER root
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh && \
+    mkdir /opt/tf2 && \
+    mkdir /opt/css
+USER steam
 
+VOLUME /opt/garrysmod
+VOLUME /opt/css
+VOLUME /opt/tf2
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
-ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
-ENTRYPOINT ["/opt/garrysmod/srcds_linux -steamdir /opt/steamcmd -port ${GMOD_PORT}"]
+# entrypoint
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_flatgrass"]

@@ -1,4 +1,4 @@
-FROM zennoe/steamcmd:testing
+FROM zennoe/steamcmd:latest
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 # switch to steam user
@@ -6,7 +6,6 @@ USER steam
 
 # Gmod port
 ENV GMOD_PORT=27015
-
 
 ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
 
@@ -24,4 +23,4 @@ EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 # entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_bigcity_hdr"]
+CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_flatgrass"]
