@@ -12,7 +12,14 @@ VOLUME /opt/garrysmod
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
+
+# add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh /
+USER root
+RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
+    chmod 777 /usr/local/bin/docker-entrypoint.sh
+USER steam
+
+# entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_bigcity_hdr"]
