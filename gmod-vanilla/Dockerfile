@@ -17,7 +17,8 @@ ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
 COPY docker-entrypoint.sh /usr/local/bin/
 USER root
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
-    chmod 777 /usr/local/bin/docker-entrypoint.sh
+    chmod 777 /usr/local/bin/docker-entrypoint.sh && \
+    chmod -R 777 /opt/garrysmod
 USER steam
 
 # entrypoint
