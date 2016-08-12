@@ -26,4 +26,13 @@ You can change the gamemode and map or add your own parameters.
 If you cannot connect to your server because it is outdated stop and delete your installation using `docker stop gmodserver ` and `docker rm gmodserver`. Then re-run your setup commands (see above).
 
 ## gmod-css-tf2
-This container creates a Gmod server that includes asset from TF2 and CSS. The mount.cfg file is automatically updated so that the extra assets are mounted.
+This container creates a Gmod server that includes asset from TF2 and CSS. The mount.cfg file is automatically updated so that the extra assets are mounted. For further information about usage etc. look at the description of _gmod-vanilla_.
+
+Create and run your container using
+
+    mkdir /mnt/docker/tf2
+    mkdir /mnt/docker/css
+    chmod 777 /mnt/docker/tf2
+    chmod 777 /mnt/docker/css
+    docker pull zennoe/gmod-css-tf2
+    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -v /mnt/docker/css:/opt/css -v /mnt/docker/tf2:/opt/tf2 -p 27015:27015/udp -p 27015:27015/tcp -e GMOD_PORT=27015 zennoe/gmod-css-tf2 -game garrysmod +gamemode sandbox +map gm_flatgrass
