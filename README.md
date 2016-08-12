@@ -1,5 +1,5 @@
 # Game Server Docker-Container
-This repository contains self-updating docker containers that host a variety of gameservers. It is a fork of the [benpye/docker-containers repository](https://github.com/benpye/docker-containers).
+[This repository](https://github.com/Zennoe/docker-gameservers) contains self-updating docker containers that host a variety of gameservers. It is a fork of the [benpye/docker-containers repository](https://github.com/benpye/docker-containers).
 
 Available containers:
 - steamcmd
@@ -30,6 +30,7 @@ This container creates a Gmod server that includes asset from TF2 and CSS. The m
 
 Create and run your container using
 
+    mkdir /mnt/docker/garrysmod
     mkdir /mnt/docker/tf2
     mkdir /mnt/docker/css
     chmod 777 /mnt/docker/tf2
