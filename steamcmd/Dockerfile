@@ -5,7 +5,12 @@ RUN mkdir -p /opt/steamcmd
 
 # Install steamcmd + srcds_linux dependencies
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y lib32gcc1 lib32stdc++6 gdb
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    lib32gcc1 \
+    lib32stdc++6 \
+    gdb \
+    ca-certificates
+
 
 # Install steamcmd to /opt/steamcmd/
 ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/

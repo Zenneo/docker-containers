@@ -19,7 +19,7 @@ This container creates a Gmod server without any other games hooked up to it.
     mkdir /mnt/docker/garrysmod
     chmod 777 /mnt/docker/garrysmod
     docker pull zennoe/gmod-vanilla
-    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -e GMOD_PORT=27015 zennoe/gmod-vanilla -game garrysmod +gamemode sandbox +map gm_flatgrass
+    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -p 27015:27015/udp -p 27015:27015/tcp -e GMOD_PORT=27015 zennoe/gmod-vanilla -game garrysmod +gamemode sandbox +map gm_flatgrass
     
 You can change the gamemode and map or add your own parameters.
 
