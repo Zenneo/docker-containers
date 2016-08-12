@@ -4,11 +4,10 @@ MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 # Gmod port
 ENV GMOD_PORT=27015
 
-# Install TF2 to /opt/tf2/
+# Install TF2 to /opt/tf2/ and CSS to /opt/css/
 RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/tf2 \
-    +app_update 232250 validate +quit
-# Install CSS to /opt/css/
-RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/css \
+    +app_update 232250 validate +quit && \
+    /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/css \
     +app_update 232330 validate +quit
 	
 # Change Gmod config so that games are mounted
@@ -21,8 +20,6 @@ RUN echo "
     " > /opt/garrysmod/garrysmod/cfg/mount.cfg
 
 VOLUME /opt/garrysmod/garrysmod
-VOLUME /opt/tf2
-VOLUME /opt/css
 
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
