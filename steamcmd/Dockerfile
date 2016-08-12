@@ -9,7 +9,11 @@ RUN apt-get update && \
     lib32gcc1 \
     lib32stdc++6 \
     gdb \
-    ca-certificates
+    ca-certificates \
+    net-tools \
+    lib32z1 \
+    lib32z1-dev \
+    curl
 
 
 # Install steamcmd to /opt/steamcmd/
