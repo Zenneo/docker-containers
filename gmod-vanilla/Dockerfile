@@ -13,4 +13,4 @@ VOLUME /opt/garrysmod/garrysmod
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
-ENTRYPOINT ["/opt/garrysmod/srcds_linux", "-steamdir", "/opt/steamcmd -port ${GMOD_PORT}"]
+ENTRYPOINT ["/opt/garrysmod/srcds_run", "-steamdir", "/opt/steamcmd", "-port", "${GMOD_PORT}"]
