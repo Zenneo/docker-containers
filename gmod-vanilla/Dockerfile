@@ -15,7 +15,9 @@ COPY docker-entrypoint.sh /usr/local/bin/
 USER root
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
-    chmod -R 777 /opt/garrysmod
+    mkdir /opt/garrysmod && \
+    chmod -R 777 /opt/garrysmod/ && \
+    chown -R steam /opt/garrysmod/
 USER steam
 
 
