@@ -1,4 +1,0 @@
-#!/usr/bin/with-contenv sh
-while inotifywait -e modify -e create -e delete /certs; do
-    s6-svc -t /var/run/s6/services/murmur
-done

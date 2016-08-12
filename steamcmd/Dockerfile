@@ -1,14 +1,30 @@
 FROM ubuntu:14.04
-MAINTAINER Ben Pye <ben@curlybracket.co.uk>
+MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 RUN mkdir -p /opt/steamcmd
 
-# Install steamcmd + Garry's Mod dependencies
+# Install steamcmd + srcds_linux dependencies
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y lib32gcc1
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    lib32gcc1 \
+    lib32stdc++6 \
+    gdb \
+    ca-certificates \
+    net-tools \
+    lib32z1 \
+    lib32z1-dev \
+    curl
+
 
 # Install steamcmd to /opt/steamcmd/
 ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
-RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/
+# Untar, create user steamcmd and chown
+RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/ && \
+    useradd -m steam && \
+    chown -R steam /opt && \
+    chmod -R 744 /opt
+
+# Switch to steam user
+USER steam
 
 ENTRYPOINT ["/opt/steamcmd/steamcmd.sh"]

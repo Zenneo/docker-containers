@@ -1,3 +1,0 @@
-#!/usr/bin/with-contenv sh
-icesecret=$(cat /proc/sys/kernel/random/uuid)
-exec /usr/local/bin/dockerize -template /etc/murmur.tmpl:/etc/murmur.ini
