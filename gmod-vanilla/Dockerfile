@@ -1,4 +1,4 @@
-FROM zennoe/steamcmd:latest
+FROM zennoe/steamcmd:testing
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 # Gmod port
