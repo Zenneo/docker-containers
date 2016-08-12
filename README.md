@@ -7,7 +7,7 @@ Available containers:
 - gmod-css-tf2
 
 ## steamcmd
-This container prepares an Ubuntu 14.04 installation so that it can run SteamCMD. Game server that are updated through Steam are supposed to be based on this container.
+This container prepares an Ubuntu 14.04 installation so that it can run SteamCMD. Game server that are updated through Steam are supposed to be based on this container. Please keep in mind that SteamCMD runs as a user called _steam_.
 
 ## gmod-vanilla
 **Current version: _July 2016_**
