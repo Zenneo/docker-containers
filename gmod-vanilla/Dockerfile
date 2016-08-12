@@ -7,13 +7,12 @@ USER steam
 # Gmod port
 ENV GMOD_PORT=27015
 
-# Install Garry's Mod to /opt/garrysmod/
-RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/garrysmod \
-    +app_update 4020 validate +quit
-
-VOLUME /opt/garrysmod/garrysmod
+VOLUME /opt/garrysmod
 
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
-ENTRYPOINT ["/opt/garrysmod/srcds_run", "-steamdir", "/opt/steamcmd", "-port", "${GMOD_PORT}"]
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh /
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_bigcity_hdr"]
