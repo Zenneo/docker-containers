@@ -18,7 +18,7 @@ USER steam
 
 
 VOLUME /opt/tu
-EXPOSE ${QUERY_PORT}/udp ${QUERY_PORT}//tcp ${TU_PORT}/udp 7778/udp 3478/udp 4379/udp 4380/udp
+EXPOSE ${QUERY_PORT}/udp ${QUERY_PORT}/tcp ${TU_PORT}/udp 7778/udp 3478/udp 4379/udp 4380/udp
 
 # entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]

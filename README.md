@@ -55,4 +55,4 @@ This container creates a Tower Unite Dedicated server that is updated through St
     mkdir /mnt/docker/tu
     chmod 777 /mnt/docker/tu
     docker pull zennoe/tower-unite
-    docker run -d --name tuserver -v /mnt/docker/tu:/opt/tu -p 27015:27015/udp -p 27015:27015/tcp -p 7777:7777/udp -p 7778:7778/udp -p 3478/udp -p 4379/udp -p 4380/udp zennoe/tower-unite
+    docker run -d --name tuserver -v /mnt/docker/tu:/opt/tu -p 27015:27015/udp -p 27015:27015/tcp -p 7777:7777/udp -p 7778:7778/udp -p 3478/udp -p 4379/udp -p 4380/udp -e TU_PORT=7777 -e QUERY_PORT=27015 zennoe/tower-unite
