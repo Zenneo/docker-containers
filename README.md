@@ -45,4 +45,4 @@ This container creates a TF2 server that is updated through SteamCMD.
     mkdir /mnt/docker/tf2
     chmod 777 /mnt/docker/tf2
     docker pull zennoe/tf2
-    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/gmod-vanilla -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
+    docker run -d --name tf2server -v /mnt/docker/tf2:/opt/garrysmod -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/tf2 -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
