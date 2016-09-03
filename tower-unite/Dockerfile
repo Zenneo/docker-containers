@@ -4,6 +4,10 @@ MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 # switch to steam user
 USER steam
 
+# set ports
+ENV QUERY_PORT=27015
+ENV TU_PORT=7777
+
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
 USER root
@@ -14,7 +18,7 @@ USER steam
 
 
 VOLUME /opt/tu
-EXPOSE 27015/udp 27015/tcp 7777/udp 7778/udp 3478/udp 4379/udp 4380/udp
+EXPOSE ${QUERY_PORT}/udp ${QUERY_PORT}//tcp ${TU_PORT}/udp 7778/udp 3478/udp 4379/udp 4380/udp
 
 # entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]
