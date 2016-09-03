@@ -10,8 +10,6 @@ Available containers:
 This container prepares an Ubuntu 14.04 installation so that it can run SteamCMD. Game server that are updated through Steam are supposed to be based on this container. Please keep in mind that SteamCMD runs as a user called _steam_.
 
 ## gmod-vanilla
-**Current version: _July 2016_**
-
 This container creates a Gmod server without any other games hooked up to it.
 
 ### Usage
@@ -28,12 +26,23 @@ If you cannot connect to your server because it is outdated stop and delete your
 ## gmod-css-tf2
 This container creates a Gmod server that includes asset from TF2 and CSS. The mount.cfg file is automatically updated so that the extra assets are mounted. For further information about usage etc. look at the description of _gmod-vanilla_.
 
-Create and run your container using
+### Usage
 
     mkdir /mnt/docker/garrysmod
     mkdir /mnt/docker/tf2
     mkdir /mnt/docker/css
+    chmod 777 /mnt/docker/garrysmod
     chmod 777 /mnt/docker/tf2
     chmod 777 /mnt/docker/css
     docker pull zennoe/gmod-css-tf2
     docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -v /mnt/docker/css:/opt/css -v /mnt/docker/tf2:/opt/tf2 -p 27015:27015/udp -p 27015:27015/tcp -e GMOD_PORT=27015 zennoe/gmod-css-tf2 -game garrysmod +gamemode sandbox +map gm_flatgrass
+
+## tf2
+This container creates a TF2 server that is updated through SteamCMD.
+
+### Usage
+
+    mkdir /mnt/docker/tf2
+    chmod 777 /mnt/docker/tf2
+    docker pull zennoe/tf2
+    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/gmod-vanilla -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
