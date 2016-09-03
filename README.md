@@ -45,4 +45,14 @@ This container creates a TF2 server that is updated through SteamCMD.
     mkdir /mnt/docker/tf2
     chmod 777 /mnt/docker/tf2
     docker pull zennoe/tf2
-    docker run -d --name gmodserver -v /mnt/docker/garrysmod:/opt/garrysmod -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/gmod-vanilla -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
+    docker run -d --name tf2server -v /mnt/docker/tf2:/opt/tf2 -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/tf2 -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
+    
+## tower-unite
+This container creates a Tower Unite Dedicated server that is updated through SteamCMD.
+
+### Usage
+
+    mkdir /mnt/docker/tu
+    chmod 777 /mnt/docker/tu
+    docker pull zennoe/tower-unite
+    docker run -d --name tuserver -v /mnt/docker/tu:/opt/tu -p 27015:27015/udp -p 27015:27015/tcp -p 7777:7777/udp -p 7778:7778/udp -p 3478/udp -p 4379/udp -p 4380/udp zennoe/tower-unite
