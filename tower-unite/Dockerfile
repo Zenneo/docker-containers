@@ -9,7 +9,7 @@ ENV QUERY_PORT=27015
 ENV TU_PORT=7777
 
 # general env variables
-LD_LIBRARY_PATH=/usr/lib64;$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
 
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
