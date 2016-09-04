@@ -4,7 +4,7 @@
 /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /opt/tu +app_update 439660 validate +quit
 
 # fix missing steamlib
-cp /opt/steamcmd/linux32/steamclient.so /opt/tu/Tower/Binaries/Linux/
+cp /opt/steamcmd/linux32/* /opt/tu/Tower/Binaries/Linux/
 LD_LIBRARY_PATH=/usr/lib64:${LD_LIBRARY_PATH}
 
 # run TU server
