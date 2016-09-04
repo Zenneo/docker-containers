@@ -9,7 +9,7 @@ ENV QUERY_PORT=27015
 ENV TU_PORT=7777
 
 # set steam env vars
-ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH-}"
+ENV LD_LIBRARY_PATH=""
 
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
