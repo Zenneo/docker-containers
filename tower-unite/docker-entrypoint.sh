@@ -5,7 +5,7 @@
 
 # fix missing steamlib
 cp /opt/steamcmd/linux32/* /opt/tu/Tower/Binaries/Linux/
-LD_LIBRARY_PATH=/usr/lib64:${LD_LIBRARY_PATH}
+LD_LIBRARY_PATH=/usr/lib32:${LD_LIBRARY_PATH}
 
 # run TU server
 /opt/tu/Tower/Binaries/Linux/TowerServer-Linux-Shipping -log  -Port="$TU_PORT" -QueryPort="$QUERY_PORT" "$@"
