@@ -7,12 +7,16 @@ RUN mkdir -p /opt/steamcmd
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     lib32gcc1 \
+    gcc \
     lib32stdc++6 \
+    libstdc++ \
     gdb \
     ca-certificates \
     net-tools \
     lib32z1 \
     lib32z1-dev \
+    zlib1g \
+    zlibc \
     curl
 
 
