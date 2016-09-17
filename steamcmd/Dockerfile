@@ -8,8 +8,8 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     lib32gcc1 \
     gcc \
-    lib32stdc++ \
-    libstdc++ \
+    lib32stdc++6 \
+    libstdc++6 \
     gdb \
     ca-certificates \
     net-tools \
