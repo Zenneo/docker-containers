@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 RUN mkdir -p /opt/steamcmd
@@ -8,7 +8,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     lib32gcc1 \
     gcc \
-    lib32stdc++6 \
+    lib32stdc++ \
     libstdc++ \
     gdb \
     ca-certificates \
