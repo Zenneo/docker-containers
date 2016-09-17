@@ -21,7 +21,7 @@ RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
 # install additional dependencies
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    mono-gmcs mono-xbuild mono-dmcs libmono-corlib4.0-cil libmono-system-data-datasetextensions4.0-cil \
+    mono-mcs mono-xbuild mono-dmcs mono-reference-assemblies-4.0 mono-devel libmono-system-data-datasetextensions4.0-cil \
     libmono-system-web-extensions4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil \
     dos2unix clang xdg-user-dirs
     
