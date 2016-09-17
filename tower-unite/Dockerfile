@@ -17,6 +17,14 @@ USER root
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     mkdir /opt/tu
+
+# install additional dependencies
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    mono-gmcs mono-xbuild mono-dmcs libmono-corlib4.0-cil libmono-system-data-datasetextensions4.0-cil \
+    libmono-system-web-extensions4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil \
+    dos2unix clang xdg-user-dirs
+    
 USER steam
 
 
