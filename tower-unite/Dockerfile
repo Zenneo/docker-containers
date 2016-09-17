@@ -8,22 +8,12 @@ USER steam
 ENV QUERY_PORT=27015
 ENV TU_PORT=7777
 
-# general env variables
-ENV LD_LIBRARY_PATH=/usr/lib32:$LD_LIBRARY_PATH
-
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
 USER root
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     mkdir /opt/tu
-
-# install additional dependencies
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    mono-mcs mono-xbuild mono-dmcs mono-reference-assemblies-4.0 mono-devel libmono-system-data-datasetextensions4.0-cil \
-    libmono-system-web-extensions4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil \
-    dos2unix clang xdg-user-dirs
     
 USER steam
 
