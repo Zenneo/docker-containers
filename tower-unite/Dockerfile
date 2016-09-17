@@ -14,6 +14,7 @@ USER root
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
     chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     mkdir /opt/tu
+COPY steamclient.so /opt/tu/Tower/Binaries/Linux
     
 USER steam
 
