@@ -5,7 +5,6 @@
 
 # fix missing steamlib
 cp /opt/steamcmd/linux32/* /opt/tu/Tower/Binaries/Linux/
-cp /opt/tu/steamclient.so /opt/tu/Tower/Binaries/Linux/
 #export LD_LIBRARY_PATH=/usr/lib32:${LD_LIBRARY_PATH}
 
 # run TU server
