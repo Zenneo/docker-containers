@@ -1,4 +1,4 @@
-FROM zennoe/steamcmd:testing
+FROM zennoe/steamcmd:latest
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 # switch to steam user
