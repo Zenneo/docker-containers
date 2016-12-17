@@ -12,8 +12,7 @@ ENV LD_LIBRARY_PATH=/opt/garrysmod/bin
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
 USER root
-RUN ln -s /usr/local/bin/docker-entrypoint.sh / && \
-    chmod 777 /usr/local/bin/docker-entrypoint.sh && \
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh && \
     mkdir /opt/garrysmod
 USER steam
 
