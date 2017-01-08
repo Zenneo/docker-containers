@@ -21,5 +21,5 @@ VOLUME /opt/tf2
 EXPOSE ${TF2_PORT}/udp ${TF2_PORT}/tcp
 
 # entrypoint
-ENTRYPOINT ["/bin/sh", "-c", "docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["-game", "tf", "+sv_pure", "1", "+map", "ctf_2fort", "+maxplayers", "24"]

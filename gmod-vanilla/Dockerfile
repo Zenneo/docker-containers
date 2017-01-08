@@ -21,5 +21,5 @@ VOLUME /opt/garrysmod
 EXPOSE ${GMOD_PORT}/udp ${GMOD_PORT}/tcp
 
 # entrypoint
-ENTRYPOINT ["/bin/sh", "-c", "docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["-game", "garrysmod", "+gamemode", "sandbox", "+map", "gm_flatgrass"]

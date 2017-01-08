@@ -8,4 +8,4 @@ mkdir ~/.steam
 ln -s /opt/steamcmd/linux32 /home/steam/.steam/sdk32
 
 # run TF2 server
-/opt/tf2/srcds_run -steamdir /opt/steamcmd -port "$TF2_PORT" "$@"
+exec /opt/tf2/srcds_run -steamdir /opt/steamcmd -port "$TF2_PORT" "$@"

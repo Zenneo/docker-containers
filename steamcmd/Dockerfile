@@ -31,4 +31,4 @@ RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/ && \
 # Switch to steam user
 USER steam
 
-ENTRYPOINT ["/bin/sh", "-c", "/opt/steamcmd/steamcmd.sh"]
+ENTRYPOINT ["/opt/steamcmd/steamcmd.sh"]

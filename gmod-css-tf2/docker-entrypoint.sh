@@ -17,4 +17,4 @@ echo "
     " > /opt/garrysmod/garrysmod/cfg/mount.cfg
 
 # run Gmod server
-/opt/garrysmod/srcds_run -steamdir /opt/steamcmd -port "$GMOD_PORT" "$@"
+exec /opt/garrysmod/srcds_run -steamdir /opt/steamcmd -port "$GMOD_PORT" "$@"

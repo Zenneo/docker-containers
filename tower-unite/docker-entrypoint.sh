@@ -8,4 +8,4 @@ cp /opt/tu/linux64/steamclient.so /opt/tu/Tower/Binaries/Linux/
 #export LD_LIBRARY_PATH=/usr/lib32:${LD_LIBRARY_PATH}
 
 # run TU server
-/opt/tu/Tower/Binaries/Linux/TowerServer-Linux-Shipping -log  -Port="$TU_PORT" -QueryPort="$QUERY_PORT" "$@"
+exec /opt/tu/Tower/Binaries/Linux/TowerServer-Linux-Shipping -log  -Port="$TU_PORT" -QueryPort="$QUERY_PORT" "$@"
