@@ -14,7 +14,7 @@ USER steam
 ENV QUERY_PORT=27015
 ENV TU_PORT=7777
 ENV AUTOUPDATE=false
-ENV AUTOINTERVAL=600 # in secs
+ENV AUTOINTERVAL=600
 
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
