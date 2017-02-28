@@ -21,7 +21,8 @@ if [ $AUTOUPDATE = false ]; then
 else
     while [ 1 ]; do
         # save buildid
-        $buildid_new=$(curl -s 'https://steampics-mckay.rhcloud.com/info?apps=439660&prettyprint=1' | jq '.apps."439660".depots.branches.public.buildid' | sed 's/"//g')
+        buildid_temp=$(curl -s 'https://steampics-mckay.rhcloud.com/info?apps=439660&prettyprint=1' | jq '.apps."439660".depots.branches.public.buildid' | sed 's/"//g')
+        $buildid_new = $buildid_temp
     
         # if buildid_new != buildid_old: stop server, update and restart
         if [ $buildid_old != $buildid_new ]; then
