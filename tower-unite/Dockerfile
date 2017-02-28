@@ -2,6 +2,7 @@ FROM zennoe/steamcmd:latest
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 # Install dependcies
+USER root
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     jq
