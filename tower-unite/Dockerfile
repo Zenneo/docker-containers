@@ -5,7 +5,8 @@ MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 USER root
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    jq
+    jq \
+    psmisc
     
 
 # switch to steam user
@@ -15,7 +16,7 @@ USER steam
 ENV QUERY_PORT=27015
 ENV TU_PORT=7777
 ENV AUTOUPDATE=false
-ENV AUTOINTERVAL=600
+ENV AUTOINTERVAL=3600
 
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
