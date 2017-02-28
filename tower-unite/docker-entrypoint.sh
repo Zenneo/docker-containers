@@ -16,10 +16,10 @@ buildid_new=0
 buildid_old=0
 
 # if no autoupdate: update once and run TU server
-if [AUTOUPDATE = false]; then
+if [ $AUTOUPDATE = false ]; then
     update_and_start
 else
-    while [1]; do
+    while [ 1 ]; do
         # save buildid
         buildid_new=$(curl -s 'https://steampics-mckay.rhcloud.com/info?apps=439660&prettyprint=1' | jq '.apps."439660".depots.branches.public.buildid' | sed 's/"//g')
     
