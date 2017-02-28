@@ -14,7 +14,6 @@ RUN apt-get update && \
     ca-certificates \
     net-tools \
     lib32z1 \
-    lib32z1-dev \
     zlib1g \
     zlibc \
     curl

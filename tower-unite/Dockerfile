@@ -1,12 +1,20 @@
 FROM zennoe/steamcmd:latest
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
+# Install dependcies
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    jq
+    
+
 # switch to steam user
 USER steam
 
-# set ports
+# user options
 ENV QUERY_PORT=27015
 ENV TU_PORT=7777
+ENV AUTOUPDATE=false
+ENV AUTOINTERVAL=600 # in secs
 
 # add docker-entrypoint.sh and fix permissions
 COPY docker-entrypoint.sh /usr/local/bin/
