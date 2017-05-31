@@ -21,14 +21,15 @@ RUN apt-get update && \
 
 # Install steamcmd to /opt/steamcmd/
 ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
-# Untar, create user steamcmd and chown + plus first SteamCMD run
+# Untar, create user steamcmd and chown
 RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/ && \
     useradd -m steam && \
     chown -R steam /opt && \
-    chmod -R 744 /opt && \
-    /opt/steamcmd/steamcmd.sh +login anonymous +quit
+    chmod -R 744 /opt
 
 # Switch to steam user
 USER steam
+# First SteamCMD run
+RUN /opt/steamcmd/steamcmd.sh +login anonymous +quit
 
 ENTRYPOINT ["/opt/steamcmd/steamcmd.sh"]

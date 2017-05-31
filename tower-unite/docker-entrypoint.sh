@@ -33,6 +33,7 @@ else
     while [ 1 ]; do
         echo "Looking for updates"
         # save buildid
+        # this line is a modified version of line 17 in https://gist.githubusercontent.com/Scrxtchy/0e46117968a9267442583787e4ea5fc9/raw/e5fbea5ddefe30b7d45b83ed3fea2bc6bf78c5d2/tu.sh
         buildid_new=$(curl -s 'https://steampics-mckay.rhcloud.com/info?apps=439660&prettyprint=0' | jq '.apps["439660"].depots.branches.public.buildid' | sed 's/"//g')
     
         # if buildid_new != buildid_old: stop server, update and restart
