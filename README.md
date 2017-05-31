@@ -50,7 +50,7 @@ This container creates a TF2 server that is updated through SteamCMD. [Show on D
     docker run -d --name tf2server -v /mnt/docker/tf2:/opt/tf2 -p 27015:27015/udp -p 27015:27015/tcp -e TF2_PORT=27015 zennoe/tf2 -game tf +sv_pure 1 +map ctf_2fort +maxplayers 24
     
 ## tower-unite
-This container creates a Tower Unite Dedicated server that is updated through SteamCMD. It also features an autoupdater that checks for new builds and restarts the server once an update was released. Use AUTOUPDATE=true and AUTOINTERVAL=3600 (in secs) to activate it. [Show on Docker Hub](https://hub.docker.com/r/zennoe/tower-unite/)
+This container creates a Tower Unite Dedicated server that is updated through SteamCMD. It also features an autoupdater that checks for new builds and restarts the server once an update was released. Use `-e AUTOUPDATE=true` and `-e AUTOINTERVAL=3600` (interval in secs) to activate it. [Show on Docker Hub](https://hub.docker.com/r/zennoe/tower-unite/)
 
 ### Usage
 
