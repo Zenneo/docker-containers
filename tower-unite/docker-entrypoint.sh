@@ -37,7 +37,7 @@ else
         buildid_new=$(curl -s 'https://steampics-mckay.rhcloud.com/info?apps=439660&prettyprint=0' | jq '.apps["439660"].depots.branches.public.buildid' | sed 's/"//g')
     
         # if buildid_new != buildid_old: stop server, update and restart
-        if [ $buildid_old != $buildid_new ]; then
+        if [ "$buildid_old" != "$buildid_new" ]; then
             echo "Stopping server"
             killall TowerServer-Linux-Shipping
             update_and_start
