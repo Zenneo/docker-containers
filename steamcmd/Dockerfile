@@ -23,6 +23,7 @@ RUN apt-get update && \
 ADD https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz /tmp/
 # Untar, create user steamcmd and chown
 RUN tar -xvf /tmp/steamcmd_linux.tar.gz -C /opt/steamcmd/ && \
+    rm /tmp/steamcmd_linux.tar.gz && \
     useradd -m steam && \
     chown -R steam /opt && \
     chmod -R 744 /opt
