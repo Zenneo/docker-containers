@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Thomas Schmitz <agrar.pfurtz@gmail.com>
 
 RUN mkdir -p /opt/steamcmd
